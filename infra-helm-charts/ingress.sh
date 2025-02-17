@@ -3,4 +3,5 @@ helm upgrade -i ngx-ingres ingress-nginx/ingress-nginx -f ingress.yaml
 
 #// to connect NGINX ingress to argocd-server
 kubectl create ns argocd
+# create a pod argocd-dev
 kubectl apply -f argocd-dev.yml -n argocd
