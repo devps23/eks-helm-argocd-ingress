@@ -1,0 +1,52 @@
+# before updates
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: frontend
+  labels:
+    app: expense
+    tier: frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        tier: frontend
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.5
+
+
+#  here two pods will create by replicaset , and create the container in each pod
+# if one pod down another will execute
+---
+# after update
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: frontend
+  labels:
+    app: expense
+    tier: frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        tier: frontend
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.7
+
+# here image version is changed, but changes were update only in replicas not any changes in pods
+# to overcome this "deployment" came into a picture
+
+
