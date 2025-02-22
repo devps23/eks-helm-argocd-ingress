@@ -47,7 +47,7 @@ spec:
               mountPath: /data
       {{ end }}
       containers:
-        - name: {{ .Values.containers.name }}
+        - name: {{ .Values.metadata.component }}
           image: 041445559784.dkr.ecr.us-east-1.amazonaws.com/{{ .Values.metadata.project }}-{{ .Values.metadata.component }}:{{ .Values.appVersion }}
           volumeMounts:
             - name: vault-secret
