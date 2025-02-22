@@ -8,6 +8,7 @@ controller:
 annotations:
   service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: ip
   service.beta.kubernetes.io/aws-load-balancer-healthcheck-protocol: http
+  service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:us-east-1:041445559784:certificate/9019782f-d3d2-47b1-b5c0-b1efba5276b8
   service.beta.kubernetes.io/aws-load-balancer-scheme: "internet-facing"
   service.beta.kubernetes.io/aws-load-balancer-backend-protocol: tcp
   service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: "true"
