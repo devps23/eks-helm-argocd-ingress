@@ -18,6 +18,7 @@ spec:
         appName: {{ .Values.selector.appName }}
         projectName: {{ .Chart.Name }}
     spec:
+      {{- if .Values.ingress.enabled }}
       volumes:
         - name: vault-secret
           emptyDir: {}
@@ -44,7 +45,8 @@ spec:
           volumeMounts:
             - name: vault-secret
               mountPath: /data
-      containers:
+
+     containers:
         - name: {{ .Values.containers.name }}
           image: 041445559784.dkr.ecr.us-east-1.amazonaws.com/{{ .Values.metadata.project }}-{{ .Values.metadata.component }}:{{ .Values.appVersion }}
           volumeMounts:
