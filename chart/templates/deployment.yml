@@ -17,7 +17,7 @@ spec:
         appName: {{ .Values.selector.appName }}
         projectName: {{ .Chart.Name }}
     spec:
-    {{ if .Values.initContainers.enabled }}
+    {{- if .Values.initContainers.enabled }}
     volumes:
       - name: vault-secret
         emptyDir: { }
@@ -44,7 +44,7 @@ spec:
         volumeMounts:
           - name: vault-secret
             mountPath: /data
-    {{ - end }}
+    {{- end }}
 
     containers:
       - name: { { .Values.containers.name } }
