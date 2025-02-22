@@ -47,7 +47,7 @@ spec:
         volumeMounts:
           - name: vault-secret
             mountPath: /data
-    {{- end } }
+    {{- end }}
 
     containers:
       - name: { { .Values.containers.name } }
