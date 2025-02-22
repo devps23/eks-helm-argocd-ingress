@@ -25317,9 +25317,9 @@ spec:
                 topologyKey: kubernetes.io/hostname
               weight: 5
       containers:
-        - args:
-            - /usr/local/bin/argocd-server
-            - --insecure
+      - args:
+          - /usr/local/bin/argocd-server
+          - --insecure
           env:
             - name: REDIS_PASSWORD
               valueFrom:
@@ -26162,12 +26162,10 @@ spec:
 
 ---
 {{- if .Values.ingress.enabled }}
-
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ .Values.metadata.component }}
-  namespace: argocd
   labels:
     appName: {{ .Values.selector.appName }}
     projectName: {{ .Chart.Name }}
@@ -26184,6 +26182,6 @@ spec:
               service:
                 name: {{ .Values.metadata.component }}
                 port:
-                  number: 443
+                  number: 80
 
 {{- end }}
