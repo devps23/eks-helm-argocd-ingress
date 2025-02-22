@@ -8,7 +8,7 @@ containers:
   name: frontend
 selector:
   appName: frontend
-  type: LoadBalancer
+  type: ClusterIP
 ports:
   port: 80
   targetPort: 80
