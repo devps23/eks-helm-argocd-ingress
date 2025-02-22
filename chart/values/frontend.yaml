@@ -1,5 +1,5 @@
 component: frontend
-project_name: expense
+project: expense
 appVersion: 2.0.0
 initContainers:
   enabled: false

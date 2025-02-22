@@ -1,5 +1,5 @@
  component: backend
- project_name: expense
+ project: expense
  appVersion: 2.0.0
 initContainers:
   enabled: true
