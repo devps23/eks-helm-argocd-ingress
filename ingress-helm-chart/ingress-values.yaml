@@ -4,7 +4,7 @@ controller:
       enabled: false
     targetPorts:
       http: http
-      https: https
+      https: http
 annotations:
   service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: ip
   service.beta.kubernetes.io/aws-load-balancer-healthcheck-protocol: http
