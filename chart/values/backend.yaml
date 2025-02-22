@@ -3,8 +3,7 @@
  appVersion: 2.0.0
 initContainers:
   enabled: true
-selector:
-  appName: backend
+appName: backend
 type: ClusterIP
 port: 80
 targetPort: 8080
