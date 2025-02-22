@@ -20,7 +20,7 @@ spec:
         projectName: { { .Chart.Name } }
         appVersion: { { .Values.metadata.appVersion } }
     spec:
-      { { - if .Values.initContainers.enabled } }
+    {{ - if .Values.initContainers.enabled }}
       volumes:
         - name: vault-secret
           emptyDir: { }
@@ -47,13 +47,13 @@ spec:
           volumeMounts:
             - name: vault-secret
               mountPath: /data
-      { { - end } }
+      {{ - end }}
 
       containers:
         - name: { { .Values.containers.name } }
           image: 041445559784.dkr.ecr.us-east-1.amazonaws.com/{{ .Values.metadata.project }}-{{ .Values.metadata.component }}:{{ .Values.appVersion }}
-          { { - if .Values.initContainers.enabled } }
+          {{ - if .Values.initContainers.enabled }}
           volumeMounts:
             - name: vault-secret
               mountPath: /data
-          { { - end } }
+          {{ - end }}

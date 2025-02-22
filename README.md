@@ -21,3 +21,9 @@ this is a manifest data, to provide detailed information about argocd
 * kubectl apply -f argocd-ingress-dev.yaml
 created a pod
 * Now pass the values to the controller which type of LoadBalancer to use
+
+* to remove helm repo
+helm repo remove ingress-nginx
+* helm repo list
+* 
+
