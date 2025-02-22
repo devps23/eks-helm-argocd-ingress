@@ -56,4 +56,4 @@ spec:
         volumeMounts:
           - name: vault-secret
             mountPath: /data
-        {{ - end }}
+        {{- end }}
