@@ -16,8 +16,9 @@ spec:
       labels:
         appName: frontend
         projectName: expense
-#    spec:
-#      {{ if .Values.initContainers.enabled }}
+    spec:
+     {{ if .Values.initContainers.enabled }}
+     {{end}}
 #    volumes:
 #      - name: vault-secret
 #        emptyDir:
