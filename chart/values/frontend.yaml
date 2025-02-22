@@ -1,11 +1,8 @@
-metadata:
-  component: frontend
-  project_name: expense
-  appVersion: 2.0.0
+component: frontend
+project_name: expense
+appVersion: 2.0.0
 initContainers:
   enabled: false
-containers:
-  name: frontend
 selector:
   appName: frontend
   type: ClusterIP
