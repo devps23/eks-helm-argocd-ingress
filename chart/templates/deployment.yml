@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.metadata.component }}
+  name: frontend
   labels:
-    appName: {{ .Values.selector.appName }}
-    projectName: {{ .Chart.Name }}
+    appName: frontend
+    projectName: expense
 spec:
   replicas: 2
   selector:
     matchLabels:
-      appName: {{ .Values.selector.appName }}
-      projectName: {{ .Chart.Name }}
+      appName: frontend
+      projectName: expense
   template:
     metadata:
       labels:
-        appName: {{ .Values.selector.appName }}
-        projectName: {{ .Chart.Name }}
+        appName: frontend
+        projectName: expense
     spec:
       {{ if .Values.initContainers.enabled }}
     volumes:
@@ -47,7 +47,7 @@ spec:
         {{ end }}
 
     containers:
-      - name: {{ .Values.containers.name }}
+      - name: frontend
         image: 041445559784.dkr.ecr.us-east-1.amazonaws.com/{{ .Values.metadata.project }}-{{ .Values.metadata.component }}:{{ .Values.appVersion }}
         {{ if .Values.initContainers.enabled }}
         volumeMounts:
