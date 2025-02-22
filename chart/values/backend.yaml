@@ -1,13 +1,13 @@
  component: backend
  project: expense
- appVersion: 2.0.0
+ appVersion: 1.2
 initContainers:
   enabled: true
 appName: backend
 type: ClusterIP
 port: 80
 targetPort: 8080
-ingress:
-  enabled: false
+enabled: false
+
 
 
