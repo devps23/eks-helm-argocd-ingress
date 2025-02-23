@@ -1,13 +1,10 @@
 initContainers:
-  enabled: true
+  enabled: false
 component: frontend
 appVersion: 1.2
 
 service:
   type: ClusterIP
   port: 80
-  targetPort: 8080
+  targetPort: 80
 
-
-ingress:
-  enabled: false
