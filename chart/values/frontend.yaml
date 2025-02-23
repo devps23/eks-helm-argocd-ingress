@@ -1,6 +1,6 @@
 initContainers:
   enabled: true
-component: backend
+component: frontend
 appVersion: 1.2
 
 service:
