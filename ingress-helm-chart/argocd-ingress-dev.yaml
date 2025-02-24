@@ -26176,12 +26176,12 @@ spec:
     - host: argocd-ingress.pdevops72.online
       http:
         paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: {{ .Values.component }}
-                port:
-                  number: 80
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: {{ .Values.component }}
+              port:
+                number: 80
 
 {{- end }}
