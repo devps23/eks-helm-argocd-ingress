@@ -22857,7 +22857,7 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: frontend
+  name: argocd
   namespace: argocd
 spec:
   ingressClassName: nginx
@@ -22870,5 +22870,5 @@ spec:
               service:
                 name: argocd-server
                 port:
-                  number: 80
+                  number: 443
             path: /
