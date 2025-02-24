@@ -25,5 +25,11 @@ created a pod
 * to remove helm repo
 helm repo remove ingress-nginx
 * helm repo list
-* 
 
+
+to delete all deployment at a time use the below command:
+kubectl delete -f ingress-helm-chart/argocd-ingress-dev.yaml -n default
+
+kubectl delete deploy backend
+
+bash -x argo.sh, to know previous data
