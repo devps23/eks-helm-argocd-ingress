@@ -22859,10 +22859,12 @@ kind: Ingress
 metadata:
   name: argocd
   namespace: argocd
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: argocd-dev.pdevops78.online
 spec:
   ingressClassName: nginx
   rules:
-    - host: argocd-ingress.pdevops78.online
+    - host: argocd-dev.pdevops78.online
       http:
         paths:
           - pathType: Prefix
