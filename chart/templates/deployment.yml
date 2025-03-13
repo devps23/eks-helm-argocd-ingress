@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+apiVersion: v1
 kind: Deployment
 metadata:
   name: {{ .Values.component }}
@@ -39,11 +39,11 @@ spec:
           volumeMounts:
             - name: vault-secret
               mountPath: /data
-#        - name: schema
-#          image: public.ecr.aws/u4j6q5s8/backend-schema:1.4
-#          volumeMounts:
-#            - name: vault-secret
-#              mountPath: /data
+        - name: schema
+          image: public.ecr.aws/u4j6q5s8/backend-schema:1.4
+          volumeMounts:
+            - name: vault-secret
+              mountPath: /data
       {{- end }}
 
       containers:
