@@ -1,23 +1,14 @@
-apiVersion: apps/v1
-kind: Deployment
+{{- if .Values.schema.enabled }}
+apiVersion: batch/v1
+kind: Job
 metadata:
   name: {{ .Values.component }}
   labels:
     appName: {{ .Values.appName }}
     projectName: {{ .Chart.Name }}
 spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      appName: {{ .Values.appName }}
-      projectName: {{ .Chart.Name }}
   template:
-    metadata:
-      labels:
-        appName: {{ .Values.appName }}
-        projectName: {{ .Chart.Name }}
     spec:
-      {{- if .Values.initContainers.enabled }}
       volumes:
         - name: vault-secret
           emptyDir: {}
@@ -33,24 +24,21 @@ spec:
                   name: vault-token
                   key: token
             - name: SECRET_NAME
-              value: {{ .Chart.Name }}-dev/{{ .Values.component }}
+              value: common/vault
             - name: VAULT_SKIP_VERIFY
               value: "TRUE"
           volumeMounts:
             - name: vault-secret
               mountPath: /data
-#        - name: schema
-#          image: public.ecr.aws/u4j6q5s8/backend-schema:1.4
-#          volumeMounts:
-#            - name: vault-secret
-#              mountPath: /data
-      {{- end }}
-
       containers:
-        - name: {{ .Values.component }}
-          image: 041445559784.dkr.ecr.us-east-1.amazonaws.com/{{ .Chart.Name }}-{{ .Values.component }}:{{ .Values.appVersion }}
-          {{- if .Values.initContainers.enabled }}
+        - name: schema
+          image: public.ecr.aws/u4j6q5s8/backend-schema:1.4
           volumeMounts:
             - name: vault-secret
               mountPath: /data
-          {{- end }}
+      restartPolicy: Never
+  backoffLimit: 1
+{{- end }}
+
+# here, once job fail backoffLimit will execute  based on value
+# here schema will load only once

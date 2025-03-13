@@ -35,3 +35,9 @@ kubectl delete deploy backend
 bash -x argo.sh, to know previous data
 
 docker run -it docker.io/redhat/ubi9 , to exec into a bash / sh
+
+
+jobs in kubernetes:
+===================
+* schema will load only once so keep the schema code in Jobs 
+* 
