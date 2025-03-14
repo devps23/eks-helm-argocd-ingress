@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.component }}
-  namespace: argocd
+
   labels:
     appName: {{ .Values.appName }}
     projectName: {{ .Chart.Name }}
