@@ -36,7 +36,13 @@ bash -x argo.sh, to know previous data
 
 docker run -it docker.io/redhat/ubi9 , to exec into a bash / sh
 
-
+* kubectl delete -f eks-helm-argocd-ingress/ingress-helm-chart/argocd-ingress-dev.yaml -n default
+* kubectl app delete --help
+* argocd app list
+* bash -x argo.sh
+* ls -A
+* ls .config/
+* rm -rf .config/
 jobs in kubernetes:
 ===================
 * schema will load only once so keep the schema code in Jobs 
