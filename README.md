@@ -47,3 +47,5 @@ jobs in kubernetes:
 ===================
 * schema will load only once so keep the schema code in Jobs 
 * 
+* add-ons is a pod agent, select "Amazon EKS Pod Identity agent" 
+* create an IAM role
